@@ -72,7 +72,7 @@ function load_apps($path = 'apps')
 
             $arrayAssets->add($dictAsset1 = new CFDictionary());
             $dictAsset1->add('kind', new CFString('software-package'));
-            $dictAsset1->add('url', new CFString("$url/apps/$ipa"));
+            $dictAsset1->add('url', new CFString("$url/$ipa"));
 
             $arrayAssets->add($dictAsset2 = new CFDictionary());
             $dictAsset2->add('kind', new CFString('display-image'));
