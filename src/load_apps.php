@@ -43,7 +43,6 @@ function load_apps($path = 'apps')
 
                 // Extract Icon File
                 if (preg_match('/Payload\/([ a-zA-Z0-9.-_]+).app\/[Ii]con\.png/', $entry_name)
-                    || preg_match('/Payload\/([ a-zA-Z0-9.-_]+).app\/[Ii]con@2x\.png/', $entry_name)
                     && zip_entry_filesize($entry)) {
                     // found icon file
                     if (zip_entry_open($zip, $entry)) {
