@@ -1,2 +1,5 @@
-.idea
-data/*
+vendor/*
+!vendor/.gitkeep
+web/apps/*
+!web/apps/.gitkeep
+src/_passwords.php
