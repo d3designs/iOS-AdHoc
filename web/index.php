@@ -12,6 +12,13 @@ if (!empty($_POST['app-login'])) {
     // Validate form login
     if (array_key_exists($_POST['app-login'], $passwords)) {
         $login = $_POST['app-login'];
+
+        // Save login for one month
+        setcookie('app-login', $passwords[$login], strtotime('+1 month'), '', '', true, true);
+
+        // Redirect on successful login to avoid refresh post submit warnings
+        header("Location: {$_SERVER['REQUEST_URI']}");
+        exit();
     } elseif (!empty($_COOKIE['app-login'])) {
         // Delete any cookies on incorrect login
         setcookie('app-login', false, time()-3600, '', '', true, true);
@@ -24,7 +31,7 @@ if (!empty($_POST['app-login'])) {
 // Valid Login
 if ($login !== false) {
     $apps  = load_apps("apps/$login");
-    // Save login for one week
+    // Extend login for one month
     setcookie('app-login', $passwords[$login], strtotime('+1 month'), '', '', true, true);
 }
 ?>
