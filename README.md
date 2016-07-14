@@ -6,8 +6,8 @@ Simply drag & drop your Ad-hoc ipa files to a sub-folder inside the `web/apps` d
 
 If you want to release a new build, delete the app's ipa, png, and plist files and upload the new ipa file. (The web app will re-create the png and plist files automatically.)
 
-## Screenshot
-![Screenshot](screenshot.png)
+## Screenshots
+![Login Screen / Download Screen](screenshot.png)
 
 ## Requirements
 - Apache Web Server
