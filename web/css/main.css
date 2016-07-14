@@ -97,6 +97,11 @@ a.download {
     font-weight: 500;
 }
 
+a.download.installing {
+    color: #999;
+    border-color: #999;
+}
+
 .app ul {
     clear: both;
     list-style: none;

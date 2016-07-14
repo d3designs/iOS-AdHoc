@@ -63,9 +63,7 @@ if ($login !== false) {
     <?php foreach ($apps as $app) : ?>
     <div class="app">
 
-    <a href="itms-services://?action=download-manifest&url=<?= $app['assets']['manifest'] ?>">
-      <img src="<?= $app['assets']['display-image'] ?>" alt="App Icon" width="57" height="57">
-    </a>
+    <img src="<?= $app['assets']['display-image'] ?>" alt="App Icon" width="57" height="57">
 
     <h2><?= $app['metadata']['title'] ?></h2>
 
@@ -89,6 +87,17 @@ if ($login !== false) {
     requesting a new device be approved.
     </p>
     </div>
+
+    <script>
+    // Change download link text after being clicked
+    var links = document.querySelectorAll('.app .download');
+    Array.prototype.forEach.call(links, function(el, i){
+        el.addEventListener('click', function(){
+            this.classList.add('installing');
+            this.text = 'Installing';
+        });
+    });
+    </script>
 
 <?php else : ?>
 
