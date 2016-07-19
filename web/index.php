@@ -8,7 +8,15 @@ require_once __DIR__ . '/../src/load_passwords.php';
 $login     = false;
 $passwords = load_passwords();
 
-if (!empty($_POST['app-login'])) {
+if (isset($_GET['logout'])) {
+    // Delete cookies
+    setcookie('app-login', false, time()-3600, '', '', true, true);
+
+    // Remove ?logout from url
+    $location = substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], '?'));
+    header("Location: $location");
+    exit();
+} elseif (!empty($_POST['app-login'])) {
     // Validate form login
     if (array_key_exists($_POST['app-login'], $passwords)) {
         $login = $_POST['app-login'];
@@ -87,6 +95,8 @@ if ($login !== false) {
     requesting a new device be approved.
     </p>
     </div>
+
+    <p><a href="?logout" class="logout">Logout</a></p>
 
     <script>
     // Change download link text after being clicked
