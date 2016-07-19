@@ -17,7 +17,7 @@ if (!empty($_POST['app-login'])) {
         setcookie('app-login', $passwords[$login], strtotime('+1 month'), '', '', true, true);
 
         // Redirect on successful login to avoid refresh post submit warnings
-        header("Location: {$_SERVER['REQUEST_URI']}");
+        header("Location: {$_SERVER['REQUEST_URI']}", true, 303);
         exit();
     } elseif (!empty($_COOKIE['app-login'])) {
         // Delete any cookies on incorrect login
